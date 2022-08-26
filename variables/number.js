@@ -34,4 +34,4 @@ console.log('parse as float', Number.parseFloat(10.1))
 console.log('parse as float', Number.parseFloat('10.1'))
 
 const value = 10.234546;
-console.log(value.toFixed(2))
+console.log(value.toFixed(3))
