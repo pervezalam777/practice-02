@@ -2,6 +2,11 @@ const person = {
   name:'Pawan',
   age:30,
   isMale: true,
+  height: {
+    value:175,
+    unit:'centimeter',
+    abUnit:'cm'
+  },
   address: {
     permanent: {
       houseNo:'37A',
