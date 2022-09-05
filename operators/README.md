@@ -62,5 +62,20 @@ a %= 10;
 console.log(a); // 6
 ```
 
+## Comparison operators
+[A comparison operator compares its operands and returns a logical value based on whether the comparison is true](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#comparison_operators)
+
+### Relational operators
+- `<` less than operator
+- `>` greater than operator
+- `<=` less than equal to operator
+- `>=` greater than equal to operator
+
+### Equality operators
+- `==` equality operator
+- `!=` inequality operator
+- `===` strict equality operator
+- `!==` strict inequality operator
+
 ## References
 - [Operators mdn](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators)
