@@ -38,3 +38,42 @@ console.log('popped name is', poppedBoolean);
 
 arrayOfArray.unshift([5,10,15]);
 console.log('array Of Array', arrayOfArray);
+
+
+console.log('-------------------splice--------------------')
+// splice - *********modify actual array
+// splice(startIndex, deleteCount, ...array)
+const spliceArray = [1, 2, 5, 7, 8, 10, 12, 24];
+
+// -- add 9 between 8, 10
+console.log('------------- add 9 between 8, 10 --------------------');
+const indexOf10 = spliceArray.indexOf(10);
+console.log('index of 10 is', indexOf10);
+spliceArray.splice(indexOf10, 0, 9);
+console.log(spliceArray)
+
+// remove last two elements
+console.log('------------- remove last two element --------------------');
+console.log('length is', spliceArray.length);
+const startIndex = spliceArray.length - 2;
+console.log('start index ', startIndex)
+const removedElements = spliceArray.splice(startIndex)
+console.log('removed elements ', removedElements);
+console.log('actual array ', spliceArray)
+
+//TODO: remove two element from the middle
+
+console.log('---------------------slice-------------------------------')
+// slice - ****do not modify actual array
+// extract middle array 6, 4
+const sliceArray = [7, 3, 6, 4, 2, 10];
+const slicedArray = sliceArray.slice(2, 4);
+console.log('actual array', sliceArray);
+console.log('sliced array', slicedArray);
+
+//TODO: extract first 3 element
+
+
+// indexOf  vs findIndex
+// map
+// forEach Vs for loop Vs While

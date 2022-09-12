@@ -20,16 +20,67 @@ greetings('Pervez alam')
 ```
 
 ## Named Function
+```javascript
+// Name of the function is greetings
+function greetings(name) {
+  console.log(`Hello!!! ${name}`);
+}
+```
 
 ## Anonymous Function
+```javascript
+// Anonymous function stored on greetings variable
+const greetings = function(name) {
+  console.log(`Hello!!! ${name}`);
+}
+```
 
 ## Fat arrow Function
+```javascript
+// Fat arrow function stored on greetings variable
+const greetings = (name) =>  {
+  console.log(`Hello!!! ${name}`);
+}
+```
 
 ## function without parameter
+```javascript
+// greetings function without parameter
+function greetings() {
+  console.log(`Hello!!! there`);
+}
+```
 
 ## function with parameter
+```javascript
+// greetings function with parameter one
+function greetings(name) {
+  console.log(`Hello!!! ${name}`);
+}
+```
 
 ## Best Practice with functions
+### Named function
+- Function name should be descriptive
+- Function name should start with `verb` (e.g. doLoad, greetings, initialize, etc.)
+- Function should do what its names says (e.g. doLoad should load something)
+- Function should not have more than two parameter
+  - If more parameters required use object as parameter 
+  e.g.
+```javascript
+ function initialize(config) {
+  console.log(config.height);
+  console.log(config.width);
+  console.log(config.color)
+ }
+
+ const config = {
+  height: 300;
+  width: 200,
+  color: 'red'
+ } 
+ initialize(config)
+ ```
 
 ## References
 - [Function - w3schools](https://www.w3schools.com/js/js_functions.asp)
