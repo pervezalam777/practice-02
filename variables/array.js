@@ -73,7 +73,73 @@ console.log('sliced array', slicedArray);
 
 //TODO: extract first 3 element
 
-
 // indexOf  vs findIndex
-// map
+console.log('-----------------------findIndex-----------------------------------')
+const arrayVotersName = ['Pawan', 'Pervez', 'Pradeep', 'Nakul', 'Pavan'];
+function match(value) {
+  console.log('value----', value)
+  if(value === 'Pervez'){
+    return true;
+  }
+  return false;
+}
+
+const index = arrayVotersName.findIndex(match);
+console.log('Pervez is at index with findIndex', index);
+const indexWithIndexOf = arrayVotersName.indexOf('Pervez');
+console.log('Pervez is at index with indexOf', indexWithIndexOf);
+
+const votersList = [
+  { name: 'Pervez', voterId: '2eddi33e3', email:'pervez@example.com'},
+  { name: 'Prdeep', voterId: 'ddd98898d', email:'prdeep@example.com'},
+  { name: 'Pawan', voterId: 'eeee44545', email:'pawan@example.com'},
+  { name: 'Pavan', voterId: 'gggg34554', email:'pavan@example.com'},
+  { name: 'Arif', voterId: '345htryrt', email:'arif@example.com'},
+]
+
+console.log('voter list length', votersList.length)
+let indexOfVoter = votersList.indexOf('pawan@example.com');
+console.log('index of voter', indexOfVoter);
+
+function matchEmail(voter) {
+  if(voter.email === 'arif@example.com'){
+    return true;
+  }
+  return false;
+}
+
+function matchName(voter) {
+  if(voter.name === 'Arif'){
+    return true;
+  }
+  return false;
+}
+
+indexOfVoter = votersList.findIndex(matchEmail);
+console.log('voter index with findIndex with email', indexOfVoter);
+
+indexOfVoter = votersList.findIndex(matchName);
+console.log('voter index with findIndex with name', indexOfVoter);
+
+// TODO: use findIndex with arrayOfArray
+// TODO: students list with name, and hobbies, then find index based on hobby
+
+/**
+votersList.findIndex(function(voter){
+  // logic
+})
+
+or
+
+votersList.findIndex((voter) => {
+  // logic
+})
+
+ */
+
+
+
+
+
+// map, filter
 // forEach Vs for loop Vs While
