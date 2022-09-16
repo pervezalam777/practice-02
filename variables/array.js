@@ -136,10 +136,70 @@ votersList.findIndex((voter) => {
 })
 
  */
+console.log('---------------------------------------')
+// indexOf 
+// - All primitive types : string, number, boolean
+const arrString = ['ram', 'rahim', 'john', 'baljeet'];
+const arrNumber = [24, 66, 33, 245, 87];
+const arrBoolean = [true, false]
 
+console.log('search baljeet in string array valid index', arrString.indexOf('baljeet'));
+console.log('search arif in string array not found', arrString.indexOf('arif'));
 
+console.log('search 33 in number array valid index', arrNumber.indexOf(33));
+console.log('search 700 in number array not found', arrNumber.indexOf(700));
 
+console.log('search false in boolean array valid index', arrBoolean.indexOf(false));
+console.log('search 33 in boolean array not found', arrBoolean.indexOf(33));
 
+console.log('-----------------splice---------------------------')
+const namesArray = ['ram', 'rahim', 'john', 'baljeet'];
+namesArray.splice(2, 1, 'johnty');
+console.log('updated array - ', namesArray);
 
-// map, filter
+namesArray.splice(1, 0, 'bruseli');
+console.log('updated array -', namesArray);
+console.log('bruseli index is', namesArray.indexOf('bruseli'));
+
+namesArray.splice(3, 2, 'Sita', 'Geeta');
+console.log('updated array -', namesArray);
+
+namesArray.splice(3, 2, 'Sita', 'Geeta');
+
+const middleIndex = parseInt(namesArray.length / 2);
+console.log('middle index is ', middleIndex);
+
+console.log('-------------------filter--------------------------')
+// filter
+const genderList = ['male', 'female', 'male', 'male', 'male', 'female'];
+function isFemale(value) {
+  if(value == 'female') {
+    return true;
+  }
+  return false;
+}
+
+const femaleList = genderList.filter(isFemale);
+console.log('female list', femaleList);
+
+//TODO: male list
+const adharList = [
+  {name:'seeta', gender:'female', adharId: '3937239432'},
+  {name:'Ram', gender:'male', adharId: '545646346345'},
+  {name:'Ramesh', gender:'male', adharId: '56767345464'},
+  {name:'geeta', gender:'female', adharId: '646346456346'},
+  {name:'Vijay', gender:'male', adharId: '12445654363'},
+];
+
+function hasFemaleGender(adharUser) {
+  if(adharUser.gender == 'female'){
+    return true;
+  }
+  return false;
+}
+const adharFemaleUsers = adharList.filter(hasFemaleGender);
+console.log('adhar Female Users', adharFemaleUsers);
+
+// map
+
 // forEach Vs for loop Vs While
