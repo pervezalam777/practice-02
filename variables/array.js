@@ -200,6 +200,23 @@ function hasFemaleGender(adharUser) {
 const adharFemaleUsers = adharList.filter(hasFemaleGender);
 console.log('adhar Female Users', adharFemaleUsers);
 
-// map
+console.log('-----------------------native loop-------------------------------')
+//
+//const arrayArray = [[5, 6, 7, 8, 9], [0, 1, 2, 3, 4]]
 
-// forEach Vs for loop Vs While
+// for loop Vs While Vs forEach
+const passportList = [
+  {name:'seeta', gender:'female', adharId: '3937239432', children:[{name:'tina', age: 5}]},
+  {name:'Ram', gender:'male', adharId: '545646346345', children:[{name:'sweety', age: 6}]},
+  {name:'Ramesh', gender:'male', adharId: '56767345464', children:[{name:'sonu', age: 3}]},
+  {name:'geeta', gender:'female', adharId: '646346456346', children:[{name:'lovely', age: 5}]},
+  {name:'Vijay', gender:'male', adharId: '12445654363', children:[{name:'tina', age: 7}]},
+];
+
+// for(initialization; condition; increment) {}
+// while(condition) { //break}
+
+
+
+
+// map
