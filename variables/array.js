@@ -215,7 +215,22 @@ const passportList = [
 
 // for(initialization; condition; increment) {}
 // while(condition) { //break}
-
-
+console.log('-----------------------------------------------------')
 
 // map
+const mapArray = [2, 44, 50, 60];
+function predicateOne(value) {
+  return value + value;
+}
+
+function predicateTwo(value) {
+  return '<li>'+value+'</li>'
+}
+
+const resultMapArrayOne = mapArray.map(predicateOne);
+console.log('result map array one ', resultMapArrayOne);
+console.log('original array', mapArray)
+
+const resultMapArrayTwo = mapArray.map(predicateTwo);
+console.log('result map array two ', resultMapArrayTwo);
+console.log('original array', mapArray)

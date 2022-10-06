@@ -39,3 +39,7 @@ console.log('address is', person['address']['permanent']);
 console.log('Number of children', person['children']['length'])
 console.log('First children name', person['children'][0]['name'])
 console.log('First children age', person['children'][0]['age'])
+
+// entries
+// keys
+// values
