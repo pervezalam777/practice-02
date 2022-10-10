@@ -42,18 +42,37 @@ const map = {
   100000: 'lakh'
 }
 
-console.log(map[11])
-
+//console.log(map[11])
+// 75,0,23
 //OnceMap[2] // three
-function covertToWord(input){
-  
+function convertToWord(input){
+  let numberToWord = '';
+  let currentValue = input;
+  if(currentValue > 99 && currentValue < 1000) {
+    const hundredNumber = 100;
+    const hundredPlaceValue = parseInt(currentValue / hundredNumber)
+    numberToWord += map[hundredPlaceValue] + ' ' + map[hundredNumber]
+    currentValue -= hundredPlaceValue * hundredNumber;
+  }
+  const tenPlaceWord = map[currentValue];
+  if(tenPlaceWord) {
+    numberToWord += ' ' + tenPlaceWord
+  } else {
+    const tensNumber = 10;
+    const tensPlaceValue = parseInt(currentValue / tensNumber) * tensNumber;
+    numberToWord += ' '+ map[tensPlaceValue]
+    currentValue -= tensPlaceValue;
+    numberToWord += ' '+ map[currentValue]
+  }
+
+  return numberToWord 
 }
 
-let numberInWord = covertToWord(928);
+let numberInWord = convertToWord(999);
 console.log(numberInWord)
 
-// numberInWord = covertToWord(103);
+// numberInWord = convertToWord(103);
 // console.log(numberInWord)
 
-// numberInWord = covertToWord(1657);
+// numberInWord = convertToWord(1657);
 // console.log(numberInWord)
