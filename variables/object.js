@@ -40,6 +40,17 @@ console.log('Number of children', person['children']['length'])
 console.log('First children name', person['children'][0]['name'])
 console.log('First children age', person['children'][0]['age'])
 
+console.log('-------------------------------------')
+
+const blankObject = {};
+console.log('blankObject ', blankObject);
+
+blankObject.name = 'Nakul'; // I already know key name
+console.log('blankObject after adding "name" key - value', blankObject);
+
+const blankObjectKeyName = 'marks';
+blankObject[blankObjectKeyName] = 25; // when key name is dynamic
+console.log(`blankObject after adding "${blankObjectKeyName}" key - value`, blankObject);
 // entries
 // keys
 // values

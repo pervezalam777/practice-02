@@ -69,3 +69,19 @@ console.log('picked up string ', pickResume);
 const multipleEntries = 'this is a resume and this resume is for teachers job';
 console.log(multipleEntries.replace(/resume/g, 'file')) // for later
 console.log(multipleEntries.replaceAll('resume', 'some'))
+
+console.log('------------------------------')
+// split
+// print file name and tell me if it is image file
+const splitString = 'profile.jpg';
+const splittedString = splitString.split('.');
+console.log('splittedString ', splittedString)
+console.log('file name is - ',splittedString[0]);
+//if(splittedString[1] === 'jpg' || splittedString[1] === 'png' || splittedString[1] === 'gif' || splittedString[1] === 'jpeg') {
+const imageFileEx = ['jpg', 'jpeg', 'png', 'gif'];
+const fileEx = splittedString[1]
+if(imageFileEx.indexOf(fileEx)  !== -1){
+  console.log('this is an image file');
+} else {
+  console.log('this is not an image file');
+}
