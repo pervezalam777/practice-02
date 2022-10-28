@@ -28,8 +28,10 @@ const numberToWordMap = {
   90: 'ninety',
   100: 'hundred',
   1000: 'thousand',
-  100000: 'lakh'
+  100000: 'lakh',
+  10000000: 'crore'
 }
+const tenPlacesMap = [10000000, 100000, 1000, 100]
 
 function swipeKeyValue(key, value, resultObject) {
   resultObject[value] = parseInt(key)
@@ -47,41 +49,68 @@ for(let key in numberToWordMap) {
 // console.log('converted')
 // console.log(wordToNumberMap)
 
+function convertToNumber(input){
+  // NOTE: string split method return array based on separator provided
+  const splittedWord = input.split(' ')
+  const wordToNumberMap = splittedWord.map(wordToNumber);
+  // console.log(' -splittedWord -');
+  // console.log(splittedWord);
+  // console.log('convert to number but in array')
+  // console.log(wordToNumberMap)
+  const outerArray = []
+  tenPlacesMap.forEach((place) => {
+    const index = wordToNumberMap.indexOf(place);
+    if(index != -1){
+      const innerArray = wordToNumberMap.splice(0, index + 1);
+      outerArray.push(innerArray);
+    }
+  })
+  if(wordToNumberMap.length > 0){
+      outerArray.push(wordToNumberMap);
+  }
+  //console.log(newMap);
+  let value = 0;
+  for (let index = 0; index < outerArray.length; index++) {
+    const innerArray = outerArray[index];
+    let innerValue = innerArray[0];
+    for(let innerIndex = 1; innerIndex < innerArray.length; innerIndex++){
+      const nextNumber = innerArray[innerIndex];
+      if(tenPlacesMap.indexOf(nextNumber) !== -1) {
+          innerValue *= nextNumber;
+      } else {
+          innerValue += nextNumber;
+      }
+    }
+    value += innerValue;
+  }
+  return value;
+}
+
 function wordToNumber(word){
   return wordToNumberMap[word]
 }
 
-function convertToNumber(input){
-  // NOTE: string split method return array based on separator provided
-  const splittedValues = input.split(' ')
-  const numberMap = splittedValues.map(wordToNumber);
 
-  console.log(' -splittedValues -');
-  console.log(splittedValues);
-  console.log('convert to number but in array')
-  console.log(numberMap)
-  const twentyToNinetyMap = [20, 30, 40, 50, 60, 70, 80, 90];
-  const tenPlacesMap = [100, 1000, 100000]
-  let value = 0;
-  let previous = null;
-  for (let index = 0; index < numberMap.length; index++) {
-    // const number = numberMap[index];
-    // if(twentyToNinetyMap.indexOf(number) !== -1){
-    //   previous = number;
-    //   continue;
-    // }
-    // if(twentyToNinetyMap.indexOf(previous) !== -1) {
-    //   value += previous + number
-    // }
-    // if(tenPlacesMap.indexOf(number)) {
-    //   value *= number;
-    //   continue;
-    // }
-    // value += number
-  }
+let amountInWord = 'twenty one thousand nine hundred ten';
+let value = convertToNumber(amountInWord)
+console.log(amountInWord, ' : in number is ', value);
 
-  return value;
-}
+amountInWord = 'twenty thousand nine hundred twenty five'
+value = convertToNumber(amountInWord)
+console.log(amountInWord, ' : in number is ', value);
 
-const numberValue = convertToNumber('one hundred ten') // 110
-console.log('number is ', numberValue);
+amountInWord = 'nineteen';
+value = convertToNumber(amountInWord)
+console.log(amountInWord, ' : in number is ', value);
+
+amountInWord = 'two hundred nineteen'
+value = convertToNumber(amountInWord)
+console.log(amountInWord, ' : in number is ', value);
+
+amountInWord = 'fifteen lakh two hundred nineteen';
+value = convertToNumber(amountInWord)
+console.log(amountInWord, ' : in number is ', value);
+
+amountInWord = 'ninety nine crore ninety nine lakh ninety nine thousand nine hundred ninety nine';
+value = convertToNumber(amountInWord)
+console.log(amountInWord, ' : in number is ', value);
