@@ -234,3 +234,45 @@ console.log('original array', mapArray)
 const resultMapArrayTwo = mapArray.map(predicateTwo);
 console.log('result map array two ', resultMapArrayTwo);
 console.log('original array', mapArray)
+
+console.log('---------------------sort--------------------------------')
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+//NOTE: ***sort function update the same array
+//NOTE: ***sort function by default convert every element to string and then compare.
+const months = ['March', 'Jan', 'Feb', 'Dec'];
+months.sort();
+console.log('months ', months)
+
+const array1 = [10000, 30, 4, 21, 1];
+array1.sort()
+console.log('array1 ', array1)
+/*
+function compareFn(a, b) {
+  if (a is less than b by some ordering criterion) {
+    return -1;
+  }
+  if (a is greater than b by the ordering criterion) {
+    return 1;
+  }
+  // a must be equal to b
+  return 0;
+}
+*/
+
+const array2 = [10000, 30, 4, 21, 1];
+function compare(a, b){
+  //console.log('what is a and b ', a, b)
+  if(a < b){
+    return -1;
+  }
+  if(a > b) {
+    return 1;
+  }
+  return 0;
+}
+array2.sort(compare);
+console.log('array2 ', array2);
+
+const array3 = [10000, 30, 4, 21, 1];
+array3.sort((a, b) => b - a);
+console.log('array3 ', array3);

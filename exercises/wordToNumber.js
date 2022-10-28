@@ -47,11 +47,41 @@ for(let key in numberToWordMap) {
 // console.log('converted')
 // console.log(wordToNumberMap)
 
+function wordToNumber(word){
+  return wordToNumberMap[word]
+}
+
 function convertToNumber(input){
   // NOTE: string split method return array based on separator provided
   const splittedValues = input.split(' ')
+  const numberMap = splittedValues.map(wordToNumber);
+
   console.log(' -splittedValues -');
   console.log(splittedValues);
+  console.log('convert to number but in array')
+  console.log(numberMap)
+  const twentyToNinetyMap = [20, 30, 40, 50, 60, 70, 80, 90];
+  const tenPlacesMap = [100, 1000, 100000]
+  let value = 0;
+  let previous = null;
+  for (let index = 0; index < numberMap.length; index++) {
+    // const number = numberMap[index];
+    // if(twentyToNinetyMap.indexOf(number) !== -1){
+    //   previous = number;
+    //   continue;
+    // }
+    // if(twentyToNinetyMap.indexOf(previous) !== -1) {
+    //   value += previous + number
+    // }
+    // if(tenPlacesMap.indexOf(number)) {
+    //   value *= number;
+    //   continue;
+    // }
+    // value += number
+  }
+
+  return value;
 }
 
 const numberValue = convertToNumber('one hundred ten') // 110
+console.log('number is ', numberValue);
