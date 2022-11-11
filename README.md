@@ -9,3 +9,4 @@ This repository contains notes of javascript and other javascript related framew
 - [24] - exercise, sort, join (palladium)
 - [25] - sort, join, split, reverse
 - [26] - Object: keys, values, entries and anagram
+- [27] - spread and destructuring
