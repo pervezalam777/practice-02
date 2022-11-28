@@ -277,5 +277,13 @@ const array3 = [10000, 30, 4, 21, 1];
 array3.sort((a, b) => b - a);
 console.log('array3 ', array3);
 
+// forEach: higher order function of array
+console.log('-------------forEach--------------------')
+const arrForEach = [3,4,2,8];
+function loopFunction(item) {
+  console.log(item);
+}
+arrForEach.forEach(loopFunction);
 
-/// TODO: concat
+// TODO: concat
+

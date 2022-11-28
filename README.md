@@ -10,3 +10,5 @@ This repository contains notes of javascript and other javascript related framew
 - [25] - sort, join, split, reverse
 - [26] - Object: keys, values, entries and anagram
 - [27] - spread and destructuring
+- [28] - 
+- [29] - reduce
