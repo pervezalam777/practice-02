@@ -1,5 +1,5 @@
 # React States
-React proved hooks API to maintain the states (e.g. useState, useReducer)
+React provides hooks API to maintain the states (e.g. useState, useReducer)
 
 ```javascript
 // Sudo like implementation 
@@ -19,6 +19,8 @@ const [toggle, setToggle] = useState(false)
 - Application level (global state like home screen, about screen)
 - Group level state (one or more component sharing the same state in hierarchy)
 
+## Problems
+- Prop drilling : passing down the props to more than 2 levels
 
 ## Functional component
 - Every example would be based on functional component
