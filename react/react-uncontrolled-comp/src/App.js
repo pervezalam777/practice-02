@@ -1,11 +1,10 @@
 
-
-import './App.css';
 import SearchComponent from './components/searchComponent';
+import './App.css';
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <SearchComponent />
     </div>
   );
