@@ -54,6 +54,9 @@ function convertToWord(input){
     numberToWord += map[hundredPlaceValue] + ' ' + map[hundredNumber]
     currentValue -= hundredPlaceValue * hundredNumber;
   }
+  if(currentValue == 0) {
+    return numberToWord;
+  }
   const tenPlaceWord = map[currentValue];
   if(tenPlaceWord) {
     numberToWord += ' ' + tenPlaceWord
@@ -71,8 +74,8 @@ function convertToWord(input){
 let numberInWord = convertToWord(999);
 console.log(numberInWord)
 
-// numberInWord = convertToWord(103);
-// console.log(numberInWord)
+numberInWord = convertToWord(200);
+console.log(numberInWord)
 
 // numberInWord = convertToWord(1657);
 // console.log(numberInWord)

@@ -42,7 +42,7 @@ function covertToWord(input){
     currentValue -= tenPlaceValue * 10;
   }
 
-  if(currentValue < 10){
+  if(currentValue < 10 && currentValue > 0){
     const index = currentValue - 1;
     numberToWord += ' ' + OnceMap[index]
   }
@@ -53,8 +53,8 @@ function covertToWord(input){
 let numberInWord = covertToWord(928);
 console.log(numberInWord)
 
-// numberInWord = covertToWord(103);
-// console.log(numberInWord)
+numberInWord = covertToWord(200);
+console.log(numberInWord)
 
 // numberInWord = covertToWord(1657);
 // console.log(numberInWord)
