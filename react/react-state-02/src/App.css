@@ -1,0 +1,21 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 8px;
+  background-color: cadetblue;
+}
+
+.header-nav {
+  display: flex;
+  gap: 8px;
+}
+.header-nav li {
+  list-style: none;
+}
