@@ -1,7 +1,7 @@
 import TodoItemComponent from "./TodoItemsComponent";
 
 function TodoListComponent(props) {
-  const { list, onMarkDone } = props
+  const { list, onMarkDone, onDelete, onUpdateText } = props
   return (
     <ul className="todo-list">
       {
@@ -10,8 +10,10 @@ function TodoListComponent(props) {
             id={item.id} 
             text={item.text} 
             status={item.status}
-            
+
             onMarkDone={onMarkDone}
+            onDelete={onDelete}
+            onUpdateText={onUpdateText}
             key={item.id}/>
         })
       }

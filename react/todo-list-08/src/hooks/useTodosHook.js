@@ -1,33 +1,50 @@
 import { useState } from 'react';
 
-const todoListArray = [
-  {id: '001', text: 'Todo item one', status:'active'},
-  {id: '002', text: 'Todo item two 666', status:'active'},
-  {id: '003', text: 'Todo item three is the latest one 777', status: 'active'}
-]
+const todoListArray = []
 
 // UI Business logic
 export function useTodosHook() {
   const [list, updateList] = useState(todoListArray)
 
+  //TODO: add local-storage code here
+
   function markDone(event) {
     const id = event.target.id.split('-')[0];
-
     const index = list.findIndex((item) => item.id === id);
-    
     const cloneList = [...list];
     cloneList[index] = {...cloneList[index], status:'done'};
+    updateList(cloneList)
+  }
 
+  function updateText(id, updatedText) {
+    const index = list.findIndex((item) => item.id === id);
+    const cloneList = [...list];
+    cloneList[index] = {...cloneList[index], text:updatedText};
     updateList(cloneList)
   }
 
   function addItem(text) {
-
+    const todo = {
+      id: ''+Date.now(), 
+      text, 
+      status:'active'
+    }
+    const cloneList = [todo, ...list];
+    updateList(cloneList);
   } 
+
+  function deleteItem(id) {
+    const cloneList = list.filter((item) => item.id !== id);
+    updateList(cloneList)
+  }
+
+ 
 
   return {
     list,
     markDone,
-    addItem
+    addItem,
+    deleteItem,
+    updateText
   }
 }
