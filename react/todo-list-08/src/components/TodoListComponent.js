@@ -2,6 +2,10 @@ import TodoItemComponent from "./TodoItemsComponent";
 
 function TodoListComponent(props) {
   const { list, onMarkDone, onDelete, onUpdateText } = props
+  if(list == null){
+    return null;
+  }
+
   return (
     <ul className="todo-list">
       {

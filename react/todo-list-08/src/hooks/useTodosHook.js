@@ -1,12 +1,28 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-const todoListArray = []
+//const todoListArray = []
 
 // UI Business logic
 export function useTodosHook() {
-  const [list, updateList] = useState(todoListArray)
+  const [list, updateList] = useState(null)
 
   //TODO: add local-storage code here
+  useEffect(() => {
+    // - check local storage if there is any todo item
+    // - if there are some items then assign it to list
+    // - through updateList method
+    const storeList = window.localStorage.getItem('todos');
+    if(storeList){
+      updateList(JSON.parse(storeList));
+    }
+  }, [])
+
+  useEffect(() => {
+    if(list != null){
+      window.localStorage.setItem('todos', JSON.stringify(list))
+    }
+  }, [list])
+
 
   function markDone(event) {
     const id = event.target.id.split('-')[0];
@@ -29,7 +45,8 @@ export function useTodosHook() {
       text, 
       status:'active'
     }
-    const cloneList = [todo, ...list];
+    const todosList = list == null ? [] : list;
+    const cloneList = [todo, ...todosList];
     updateList(cloneList);
   } 
 
