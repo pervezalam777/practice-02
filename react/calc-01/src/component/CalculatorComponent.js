@@ -15,23 +15,27 @@ const actions = [
   {text:'*', type:'symbol'},
   {text:'/', type:'symbol'},
   {text:'0', type:'number'},
+  {text:'.', type:'number'},
   {text:'=', type:'symbol'},
 ]
 function CalculatorComponent() {
-  const [result, setResult] = useState('');
+  const [result, setResult] = useState('0');
   const [lastAction, setLastAction] = useState('');
   const [oldResult, setOldResult] = useState('');
-  const [replaceFlag, setReplaceFlag] = useState(false);
+  const [replaceFlag, setReplaceFlag] = useState(true);
 
   function handleClick(event) {
     const { id } = event.target;
     const [text, type] = id.split('|');
+    if(text === '0' && result === '0') {
+      return;
+    }
     if(type === 'number'){
-      if(replaceFlag){
-        setResult(text);
+      if(replaceFlag || result === '0'){
+        setResult(text); // 8
         setReplaceFlag(false)
       } else {
-        setResult(result+text);
+        setResult(result + text); //'45' + '9' = 459
       }
     } else {
       if(text === '='){
@@ -39,7 +43,7 @@ function CalculatorComponent() {
         const calculatedValue = calculate(oldResult, result, lastAction);
         setResult(calculatedValue);
         setOldResult('');
-        setReplaceFlag(false);
+        setReplaceFlag(true);
         setLastAction('');
       } else {
         console.log('last action was ', lastAction, '>>', text)
@@ -48,11 +52,11 @@ function CalculatorComponent() {
           setLastAction(text);
           setReplaceFlag(true);
         } else {
-          const calculatedValue = calculate(oldResult, result, lastAction);
+          const calculatedValue = calculate(oldResult, result, lastAction); //8, 7, '+'
           setResult(calculatedValue);
           setOldResult(calculatedValue);
           setReplaceFlag(true);
-          setLastAction(text);
+          setLastAction(text); //'-'
         }
       }
     }
@@ -79,7 +83,7 @@ function CalculatorComponent() {
         <p>result: {result}</p>
         <p>old--{oldResult} {lastAction}</p>
       </div>
-      <div>
+      <div className="calc-keypad">
         {
           actions.map(item => {
             const {text, type} = item;
