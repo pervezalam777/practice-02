@@ -40,11 +40,16 @@ function CalculatorComponent() {
     } else {
       if(text === '='){
         console.log('perform last action', lastAction)
-        const calculatedValue = calculate(oldResult, result, lastAction);
+        let calculatedValue = calculate(oldResult, result, lastAction);
+        if(replaceFlag) {
+          calculatedValue = calculate(result, oldResult, lastAction);
+        }
         setResult(calculatedValue);
-        setOldResult('');
+        if(replaceFlag === false) {
+          setOldResult(result);
+        }
         setReplaceFlag(true);
-        setLastAction('');
+        //setLastAction('');
       } else {
         console.log('last action was ', lastAction, '>>', text)
         if(lastAction === ''){
@@ -67,7 +72,7 @@ function CalculatorComponent() {
       return ''+(Number(val1) + Number(val2));
     }
     if(action === '-') {
-      return ''+(Number(val1) - Number(val2));
+      return (Number(val1) - Number(val2)).toString();
     }
     if(action === '*') {
       return ''+(Number(val1) * Number(val2));
