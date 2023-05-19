@@ -1,0 +1,16 @@
+.App {
+  text-align: center;
+}
+
+.tic-tac-cell {
+  width: 30px;
+  height: 30px;
+}
+
+.tic-tac-table {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  width: 98px;
+  margin: auto;
+}
