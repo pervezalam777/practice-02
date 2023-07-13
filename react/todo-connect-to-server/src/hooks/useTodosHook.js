@@ -76,8 +76,11 @@ export function useTodosHook() {
     console.log(response);
   } 
 
-  function deleteItem(id) {
-    const cloneList = list.filter((item) => item.id !== id);
+  async function deleteItem(id) {
+    await fetch(`http://localhost:3000/todos/${id}`, {
+      method: "DELETE"
+    })
+    const cloneList = list.filter((item) => item.id !== +id);
     updateList(cloneList)
   }
 
