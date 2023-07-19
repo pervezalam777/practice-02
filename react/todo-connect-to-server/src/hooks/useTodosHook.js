@@ -37,18 +37,34 @@ export function useTodosHook() {
   }, [list])
 
 
-  function markDone(event) {
+  async function markDone(event) {
     const id = event.target.id.split('-')[0];
-    const index = list.findIndex((item) => item.id === id);
+    await fetch(`http://localhost:3000/todos/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({status: STATUS.DONE})
+    })
+
+    const index = list.findIndex((item) => item.id === +id);
     const cloneList = [...list];
     cloneList[index] = {...cloneList[index], status:STATUS.DONE};
-    updateList(cloneList)
+    updateList(cloneList);
   }
 
-  function updateText(id, updatedText) {
-    const index = list.findIndex((item) => item.id === id);
+  async function updateText(id, updatedText) {
+    await fetch(`http://localhost:3000/todos/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({todo:updatedText})
+    })
+
+    const index = list.findIndex((item) => item.id === +id);
     const cloneList = [...list];
-    cloneList[index] = {...cloneList[index], text:updatedText};
+    cloneList[index] = {...cloneList[index], todo:updatedText};
     updateList(cloneList)
   }
 
