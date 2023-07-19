@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const STATUS = {
+export const STATUS = {
   ACTIVE: "TO DO",
   IN_PROGRESS: "IN PROGRESS",
   DONE: "DONE"

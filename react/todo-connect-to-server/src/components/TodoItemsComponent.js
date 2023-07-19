@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react'; 
+import { STATUS } from '../hooks/useTodosHook'
 
 function TodoItemComponent(props) {
   const { 
@@ -14,7 +15,7 @@ function TodoItemComponent(props) {
   const inputRef = useRef()
 
   function renderActions() {
-    if(status === 'active'){
+    if(status === STATUS.ACTIVE || status === STATUS.IN_PROGRESS){
       return (
         <>
           <button id={`${id}-edit`} onClick={handleEdit}>
