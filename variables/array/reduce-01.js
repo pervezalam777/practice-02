@@ -42,3 +42,14 @@ const totalFileCount = drive.reduce((result, current) => {
 }, 0) 
 
 console.log('total file count', totalFileCount)
+
+const transformed = drive.reduce((result, current) => {
+  if(current.type === 'file'){
+    result.files.push(current);
+  } else {
+    result.directories.push(current)
+  }
+  return result;
+}, { files:[], directories:[]})
+
+console.log(transformed);
